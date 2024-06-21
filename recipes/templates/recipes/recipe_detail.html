@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">{{ recipe.title }}</h1>
+            <p class="subtitle">{{ recipe.description }}</p>
+            <div class="content">
+                <h2>Ingredients</h2>
+                <ul>
+                    {% for ingredient in recipe.ingredients.all %}
+                    <li>{{ ingredient.name }}</li>
+                    {% endfor %}
+                </ul>
+                <h2>Instructions</h2>
+                <p>{{ recipe.instructions }}</p>
+            </div>
+            <a href="{% url 'recipe_list' %}" class="button is-link">Back to Recipe List</a>
+        </div>
+    </section>
+</body>
+</html>
